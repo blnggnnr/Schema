@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sysevent_script_action">
+    <sysevent_script_action action="DELETE">
+        <active>false</active>
+        <condition_script/>
+        <description/>
+        <event_name>sys_user.delete</event_name>
+        <name>test123</name>
+        <order>100</order>
+        <script><![CDATA[var sysTables = new GlideRecord('sys_db_object');
+sysTables.addQuery('name','!=','');
+  
+sysTables.query();
+if (sysTables.next()){
+    gs.info("Table" + sysTables.name);
+}]]></script>
+        <synchronous>false</synchronous>
+        <sys_class_name>sysevent_script_action</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-04-16 04:03:12</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>9186d9288712211092381f073cbb3543</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>test123</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Test" source="x_965022_test">f3d0e4c78782211092381f073cbb355d</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Test">f3d0e4c78782211092381f073cbb355d</sys_scope>
+        <sys_update_name>sysevent_script_action_9186d9288712211092381f073cbb3543</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-04-16 04:04:15</sys_updated_on>
+    </sysevent_script_action>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Test">f3d0e4c78782211092381f073cbb355d</application>
+        <file_path/>
+        <instance_id>b90eae5bdbf8c9505749cac5059619ea</instance_id>
+        <instance_name>dev120332</instance_name>
+        <name>sysevent_script_action_9186d9288712211092381f073cbb3543</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sysevent_script_action"&gt;&lt;sysevent_script_action action="INSERT_OR_UPDATE"&gt;&lt;active&gt;false&lt;/active&gt;&lt;condition_script/&gt;&lt;description/&gt;&lt;event_name&gt;sys_user.delete&lt;/event_name&gt;&lt;name&gt;test123&lt;/name&gt;&lt;order&gt;100&lt;/order&gt;&lt;script&gt;&lt;![CDATA[var sysTables = new GlideRecord('sys_db_object');
+sysTables.addQuery('name','!=','');
+  
+sysTables.query();
+if (sysTables.next()){
+    gs.info("Table" + sysTables.name);
+}]]&gt;&lt;/script&gt;&lt;synchronous&gt;false&lt;/synchronous&gt;&lt;sys_class_name&gt;sysevent_script_action&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2023-04-16 04:03:12&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;9186d9288712211092381f073cbb3543&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_name&gt;test123&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Test" source="x_965022_test"&gt;f3d0e4c78782211092381f073cbb355d&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Test"&gt;f3d0e4c78782211092381f073cbb355d&lt;/sys_scope&gt;&lt;sys_update_name&gt;sysevent_script_action_9186d9288712211092381f073cbb3543&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2023-04-16 04:04:15&lt;/sys_updated_on&gt;&lt;/sysevent_script_action&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>2112788579</payload_hash>
+        <record_name>test123</record_name>
+        <reverted_from/>
+        <source>00e0e4c78782211092381f073cbb355f</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-04-16 04:04:15</sys_created_on>
+        <sys_id>7b17d9288712211092381f073cbb3549</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>187883c25360000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-04-16 04:04:15</sys_updated_on>
+        <type>Script Action</type>
+        <update_guid>7317d928671221105cdaf4bf98664349</update_guid>
+        <update_guid_history>7317d928671221105cdaf4bf98664349:2112788579,e8e619e4f7122110f50e1561b8c748c1:1210316686</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-04-16 04:05:49</sys_created_on>
+        <sys_db_object display_value="" name="sysevent_script_action">sysevent_script_action</sys_db_object>
+        <sys_id>0ff922ae5d13464b82ea06c8f97f5241</sys_id>
+        <sys_metadata>9186d9288712211092381f073cbb3543</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>test123</sys_name>
+        <sys_package display_value="Test" source="x_965022_test">f3d0e4c78782211092381f073cbb355d</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Test">f3d0e4c78782211092381f073cbb355d</sys_scope>
+        <sys_scope_delete display_value="">b368dd393c3b4ce69d7b67ae97217909</sys_scope_delete>
+        <sys_update_name>sysevent_script_action_9186d9288712211092381f073cbb3543</sys_update_name>
+        <sys_update_version display_value="sysevent_script_action_9186d9288712211092381f073cbb3543">7b17d9288712211092381f073cbb3549</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-04-16 04:05:49</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

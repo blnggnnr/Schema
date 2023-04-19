@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="68ddd899879aa11092381f073cbb3599" label="M2MDiagramToTable" max_length="40" name="x_965022_test_m2m_x_965022_tes_x_965022_tes" type="collection">
+        <element label="SNTables" max_length="32" name="x_965022_test_sndiagram" reference="x_965022_test_sndiagram" type="reference"/>
+        <element label="SNDiagrams" max_length="32" name="x_965022_test_sntables" reference="x_965022_test_sntables" type="reference"/>
+        <index name="index">
+            <element name="x_965022_test_sndiagram"/>
+        </index>
+        <index name="index2">
+            <element name="x_965022_test_sntables"/>
+        </index>
+    </element>
+</database>

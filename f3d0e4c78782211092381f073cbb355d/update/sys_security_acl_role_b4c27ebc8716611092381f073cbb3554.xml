@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="INSERT_OR_UPDATE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-04-17 05:23:07</sys_created_on>
+        <sys_id>b4c27ebc8716611092381f073cbb3554</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_965022_test_snrelationship.x_965022_test.snrelationship_user</sys_name>
+        <sys_package display_value="Test" source="x_965022_test">f3d0e4c78782211092381f073cbb355d</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Test">f3d0e4c78782211092381f073cbb355d</sys_scope>
+        <sys_security_acl display_value="x_965022_test_snrelationship">7cc27ebc8716611092381f073cbb3551</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_b4c27ebc8716611092381f073cbb3554</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-04-17 05:23:07</sys_updated_on>
+        <sys_user_role display_value="x_965022_test.snrelationship_user" name="x_965022_test.snrelationship_user">90c2b27c8716611092381f073cbb3544</sys_user_role>
+        <transaction_id/>
+    </sys_security_acl_role>
+</record_update>

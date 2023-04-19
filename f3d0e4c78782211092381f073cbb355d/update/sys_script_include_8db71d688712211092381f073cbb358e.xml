@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_965022_test.CopySchemaInfo</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Copy SN schema info to application tables</description>
+        <name>CopySchemaInfo</name>
+        <script><![CDATA[var CopySchemaInfo = Class.create();
+CopySchemaInfo.prototype = {
+    initialize: function() {
+    },
+    copyTables: function() {
+		var systab = new GlideRecord('sys_db_object'); 
+		var sntab = new GlideRecord('x_965022_test_sntables');
+		sntab.query();
+		sntab.deleteMultiple();
+		systab.addNotNullQuery("sys_update_name");
+		systab.query();
+		while (systab.next()) {
+			var count = new GlideAggregate(systab.name);
+			count.addAggregate('COUNT');
+			var numentries = 0;
+			try {
+				count.query();
+				if (count.next())
+					numentries = count.getAggregate('COUNT');
+			} catch (e) {
+				gs.info("Count failed for: " + systab.name);
+			}
+			sntab.initialize(); 
+			sntab.setValue("systable", systab.getUniqueValue());
+			sntab.setValue("count1", numentries);
+			sntab.setValue("name", systab.label + " [" + systab.name + "]");
+			sntab.setValue("syspackage", systab.sys_package.name);
+			sntab.insert();
+		}
+	},
+
+    copyRelationships: function() {
+		var idmap={};
+		var stab = new GlideRecord('x_965022_test_sntables');
+		stab.query();		
+		while (stab.next()) {
+			idmap[stab.systable.name]=stab.getUniqueValue();
+		}
+		var systab = new GlideRecord('sys_dictionary'); 
+		var sntab = new GlideRecord('x_965022_test_snrelationship');
+		sntab.query();
+		sntab.deleteMultiple();
+		systab.addQuery("active", "true");
+		systab.addQuery("sys_class_name", "sys_dictionary");
+		systab.addNotNullQuery("reference");
+		systab.query();
+		while (systab.next()) {
+			var srcid=idmap[systab.name];
+			var tarid=idmap[systab.reference.name];
+			if (srcid!=null && tarid!=null) {
+				sntab.initialize(); 
+				sntab.setValue("source", srcid);
+				sntab.setValue("target", tarid);
+				sntab.setValue("direction", true);
+				sntab.setValue("relationship", systab.column_label + " [" + systab.element + "]");
+				sntab.setValue("source_multiplicity", "*");
+				if (systab.getValue("internal_type").equals("glide_list") || systab.array==1 || systab.array_denormalized==1) {
+					if (systab.mandatory==1)
+						sntab.setValue("target_multiplicity", "1..*");
+					else
+						sntab.setValue("target_multiplicity", "*");
+				} else {
+					if (systab.mandatory==1)
+						sntab.setValue("target_multiplicity", "1");
+					else
+						sntab.setValue("target_multiplicity", "0..1");
+				}
+				sntab.insert();
+			}
+		}
+	},
+
+    type: 'CopySchemaInfo'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-04-16 04:13:29</sys_created_on>
+        <sys_id>8db71d688712211092381f073cbb358e</sys_id>
+        <sys_mod_count>36</sys_mod_count>
+        <sys_name>CopySchemaInfo</sys_name>
+        <sys_package display_value="Test" source="x_965022_test">f3d0e4c78782211092381f073cbb355d</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Test">f3d0e4c78782211092381f073cbb355d</sys_scope>
+        <sys_update_name>sys_script_include_8db71d688712211092381f073cbb358e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-04-18 07:40:27</sys_updated_on>
+    </sys_script_include>
+</record_update>
