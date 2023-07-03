@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element db_object_id="8223ba7c8716611092381f073cbb3584" label="SNPackage" max_length="40" name="x_965022_test_snpackage" type="collection">
         <element label="Description" max_length="200" name="description" type="string"/>
-        <element label="Name" max_length="100" name="name" type="string"/>
+        <element label="Name" mandatory="true" max_length="100" name="name" type="string"/>
+        <element label="Owner" mandatory="true" max_length="32" name="owner" reference="sys_user" type="reference"/>
+        <index name="index">
+            <element name="owner"/>
+        </index>
     </element>
 </database>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_relationship">
+    <sys_relationship action="INSERT_OR_UPDATE">
+        <advanced>false</advanced>
+        <apply_to/>
+        <basic_apply_to>x_965022_test_sntables</basic_apply_to>
+        <basic_query_from>x_965022_test_snrelationship</basic_query_from>
+        <insert_callback/>
+        <name>Tables used by this table</name>
+        <query_from/>
+        <query_with><![CDATA[current.addQuery('source', parent.sys_id);]]></query_with>
+        <reference_field>source</reference_field>
+        <related_list/>
+        <simple_reference>true</simple_reference>
+        <sys_class_name>sys_relationship</sys_class_name>
+        <sys_created_by>Z000JHUP</sys_created_by>
+        <sys_created_on>2023-07-03 06:39:13</sys_created_on>
+        <sys_id>67266b25db7f29d0e37999fbd39619a1</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Tables used by this table</sys_name>
+        <sys_package display_value="SNSchema" source="x_965022_test">f3d0e4c78782211092381f073cbb355d</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SNSchema">f3d0e4c78782211092381f073cbb355d</sys_scope>
+        <sys_update_name>sys_relationship_67266b25db7f29d0e37999fbd39619a1</sys_update_name>
+        <sys_updated_by>Z000JHUP</sys_updated_by>
+        <sys_updated_on>2023-07-03 06:52:22</sys_updated_on>
+    </sys_relationship>
+    <sys_translated_text action="delete_multiple" query="documentkey=67266b25db7f29d0e37999fbd39619a1"/>
+</record_update>
