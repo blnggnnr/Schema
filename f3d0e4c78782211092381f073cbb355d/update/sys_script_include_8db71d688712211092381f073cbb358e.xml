@@ -12,29 +12,50 @@ CopySchemaInfo.prototype = {
     initialize: function() {
     },
     copyTables: function() {
-		var systab = new GlideRecord('sys_db_object'); 
 		var sntab = new GlideRecord('x_965022_test_sntables');
 		sntab.query();
 		sntab.deleteMultiple();
+		updateTables(true);
+	},
+
+    updateTables: function(cnt) {
+		var systab = new GlideRecord('sys_db_object'); 
+		var sntab = new GlideRecord('x_965022_test_sntables');
 		systab.addNotNullQuery("sys_update_name");
 		systab.query();
 		while (systab.next()) {
-			var count = new GlideAggregate(systab.name);
-			count.addAggregate('COUNT');
-			var numentries = 0;
-			try {
-				count.query();
-				if (count.next())
-					numentries = count.getAggregate('COUNT');
-			} catch (e) {
-				gs.info("Count failed for: " + systab.name);
+			if (sntab.get("systable", systab.getUniqueValue())) {
+				var chng=false;
+				if (sntab.getValue("name")!=null && !sntab.getValue("name").equals(systab.label + " [" + systab.name + "]")) {
+					sntab.setValue("name", systab.label + " [" + systab.name + "]");
+					chng=true;
+				}
+				if (sntab.getValue("syspackage")!=null && !sntab.getValue("syspackage").equals(systab.sys_package.name)) {
+					sntab.setValue("syspackage", systab.sys_package.name);
+					chng=true;
+				}
+				if (chng) 
+					sntab.update();
+			} else {
+				var numentries = 0;
+				if (cnt) {
+					var count = new GlideAggregate(systab.name);
+					count.addAggregate('COUNT');
+					try {
+						count.query();
+						if (count.next())
+							numentries = count.getAggregate('COUNT');
+					} catch (e) {
+						gs.info("Count failed for: " + systab.name);
+					}
+				}
+				sntab.initialize(); 
+				sntab.setValue("systable", systab.getUniqueValue());
+				sntab.setValue("count1", numentries);
+				sntab.setValue("name", systab.label + " [" + systab.name + "]");
+				sntab.setValue("syspackage", systab.sys_package.name);
+				sntab.insert();
 			}
-			sntab.initialize(); 
-			sntab.setValue("systable", systab.getUniqueValue());
-			sntab.setValue("count1", numentries);
-			sntab.setValue("name", systab.label + " [" + systab.name + "]");
-			sntab.setValue("syspackage", systab.sys_package.name);
-			sntab.insert();
 		}
 	},
 
@@ -85,13 +106,13 @@ CopySchemaInfo.prototype = {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-04-16 04:13:29</sys_created_on>
         <sys_id>8db71d688712211092381f073cbb358e</sys_id>
-        <sys_mod_count>36</sys_mod_count>
+        <sys_mod_count>43</sys_mod_count>
         <sys_name>CopySchemaInfo</sys_name>
-        <sys_package display_value="Test" source="x_965022_test">f3d0e4c78782211092381f073cbb355d</sys_package>
+        <sys_package display_value="SNSchema" source="x_965022_test">f3d0e4c78782211092381f073cbb355d</sys_package>
         <sys_policy/>
-        <sys_scope display_value="Test">f3d0e4c78782211092381f073cbb355d</sys_scope>
+        <sys_scope display_value="SNSchema">f3d0e4c78782211092381f073cbb355d</sys_scope>
         <sys_update_name>sys_script_include_8db71d688712211092381f073cbb358e</sys_update_name>
-        <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-04-18 07:40:27</sys_updated_on>
+        <sys_updated_by>Z000JHUP</sys_updated_by>
+        <sys_updated_on>2023-07-28 10:23:38</sys_updated_on>
     </sys_script_include>
 </record_update>

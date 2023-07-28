@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_scope_privilege">
+    <sys_scope_privilege action="INSERT_OR_UPDATE">
+        <operation>read</operation>
+        <source_scope display_value="SNSchema">f3d0e4c78782211092381f073cbb355d</source_scope>
+        <status>allowed</status>
+        <sys_class_name>sys_scope_privilege</sys_class_name>
+        <sys_created_by>Z000JHUP</sys_created_by>
+        <sys_created_on>2023-07-28 09:48:39</sys_created_on>
+        <sys_id>8db105f91b14b9901eeafc07cb4bcb44</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_pl4_schedule4u_task_planning_validation</sys_name>
+        <sys_package display_value="SNSchema" source="x_965022_test">f3d0e4c78782211092381f073cbb355d</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SNSchema">f3d0e4c78782211092381f073cbb355d</sys_scope>
+        <sys_update_name>sys_scope_privilege_8db105f91b14b9901eeafc07cb4bcb44</sys_update_name>
+        <sys_updated_by>Z000JHUP</sys_updated_by>
+        <sys_updated_on>2023-07-28 09:48:39</sys_updated_on>
+        <target_name>x_pl4_schedule4u_task_planning_validation</target_name>
+        <target_scope display_value="Schedule4U">6732ed17db76d450ccd215603996196c</target_scope>
+        <target_type>sys_db_object</target_type>
+    </sys_scope_privilege>
+</record_update>
