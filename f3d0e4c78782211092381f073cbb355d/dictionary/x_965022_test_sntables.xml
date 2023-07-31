@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element db_object_id="f0a161e08752211092381f073cbb3507" label="SNTable" max_length="40" name="x_965022_test_sntables" type="collection">
+        <element default="true" label="Active" max_length="40" name="active" type="boolean"/>
         <element default="0" label="Count" max_length="40" name="count1" read_only="true" type="integer"/>
         <element label="Diagram" max_length="4000" name="diagram" read_only="true" reference="x_965022_test_sndiagram" type="glide_list"/>
         <element display="true" label="Name" max_length="200" name="name" read_only="true" type="string"/>

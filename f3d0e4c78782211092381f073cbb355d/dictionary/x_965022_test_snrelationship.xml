@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element db_object_id="64803e3c8716611092381f073cbb3530" label="SNRelationship" max_length="40" name="x_965022_test_snrelationship" type="collection">
+        <element default="true" label="Active" max_length="40" name="active" type="boolean"/>
+        <element label="SysDictionary" max_length="32" name="dictionaryid" reference="sys_dictionary" type="reference"/>
         <element label="Is Directed?" max_length="40" name="direction" read_only="true" type="boolean"/>
         <element label="Relationship" max_length="100" name="relationship" read_only="true" type="string"/>
         <element label="Source" max_length="32" name="source" read_only="true" reference="x_965022_test_sntables" type="reference"/>
@@ -10,9 +12,12 @@
         <element label="Target role" max_length="50" name="target_role" type="string"/>
         <element label="Used" max_length="40" name="used" type="boolean"/>
         <index name="index">
-            <element name="source"/>
+            <element name="dictionaryid"/>
         </index>
         <index name="index2">
+            <element name="source"/>
+        </index>
+        <index name="index3">
             <element name="target"/>
         </index>
     </element>
