@@ -11,12 +11,30 @@
 CopySchemaInfo.prototype = {
     initialize: function() {
     },
-    copyTables: function() {
-		var sntab = new GlideRecord('x_965022_test_sntables');
-		sntab.deleteMultiple();
-		updateTables(true, true);
+
+	updateSchemaByUser: function() {
+		this.updateTables(false, false);
+		this.updateRelationships(false);
 	},
 
+	updateSchemaBySystem: function() {
+		this.updateTables(true, true);
+		this.updateRelationships(true);
+	},
+
+	copyTables: function() {
+		var sntab = new GlideRecord('x_965022_test_sntables');
+		sntab.deleteMultiple();
+		this.updateTables(true, true);
+	},
+
+	copyRelationships: function() {
+		var sntab = new GlideRecord('x_965022_test_snrelationship');
+		sntab.addNotNullQuery("dictionaryid");
+		sntab.deleteMultiple();
+		this.updateRelationships(true);
+	},
+	
     updateTables: function(cnt, act) {
 		var systab = new GlideRecord('sys_db_object'); 
 		var sntab = new GlideRecord('x_965022_test_sntables');
@@ -72,16 +90,20 @@ CopySchemaInfo.prototype = {
 		}
 	},
 
-    copyRelationships: function() {
+    updateRelationships: function(act) {
 		var idmap={};
 		var stab = new GlideRecord('x_965022_test_sntables');
 		stab.query();		
-		while (stab.next()) {
+		while (stab.next())
 			idmap[stab.systable.name]=stab.getUniqueValue();
-		}
 		var systab = new GlideRecord('sys_dictionary'); 
 		var sntab = new GlideRecord('x_965022_test_snrelationship');
-		sntab.deleteMultiple();
+		if (act) {
+			sntab.addNotNullQuery("dictionaryid");
+			sntab.setValue("active", false);
+			sntab.updateMultiple();
+			sntab = new GlideRecord('x_965022_test_snrelationship');
+		}
 		systab.addQuery("active", "true");
 		systab.addQuery("sys_class_name", "sys_dictionary");
 		systab.addNotNullQuery("reference");
@@ -90,24 +112,47 @@ CopySchemaInfo.prototype = {
 			var srcid=idmap[systab.name];
 			var tarid=idmap[systab.reference.name];
 			if (srcid!=null && tarid!=null) {
-				sntab.initialize(); 
-				sntab.setValue("source", srcid);
-				sntab.setValue("target", tarid);
-				sntab.setValue("direction", true);
-				sntab.setValue("relationship", systab.column_label + " [" + systab.element + "]");
-				sntab.setValue("source_multiplicity", "*");
-				if (systab.getValue("internal_type").equals("glide_list") || systab.array==1 || systab.array_denormalized==1) {
-					if (systab.mandatory==1)
-						sntab.setValue("target_multiplicity", "1..*");
-					else
-						sntab.setValue("target_multiplicity", "*");
+				var relname=systab.column_label + " [" + systab.element + "]";
+				var tarmult=(systab.mandatory==1?"1":"0..1");
+				if (systab.getValue("internal_type").equals("glide_list") || systab.array==1 || systab.array_denormalized==1)
+					tarmult=(systab.mandatory==1?"1..*":"*");
+				if (sntab.get("dictionaryid", systab.getUniqueValue())) {
+					var chng=false;
+					if (!sntab.getValue("source").equals(srcid)) {
+						sntab.setValue("source", srcid);
+						chng=true;
+					}
+					if (!sntab.getValue("target").equals(tarid)) {
+						sntab.setValue("target", tarid);
+						chng=true;
+					}
+					if (!sntab.getValue("relationship").equals(relname)) {
+						sntab.setValue("relationship", relname);
+						chng=true;
+					}
+					if (!sntab.getValue("target_multiplicity").equals(tarmult)) {
+						sntab.setValue("target_multiplicity", tarmult);
+						chng=true;
+					}
+					if (act) {
+						sntab.setValue("active", true);
+						chng=true;
+					}
+					if (chng)
+						sntab.update();
 				} else {
-					if (systab.mandatory==1)
-						sntab.setValue("target_multiplicity", "1");
-					else
-						sntab.setValue("target_multiplicity", "0..1");
+					sntab.initialize();
+					sntab.setValue("dictionaryid", systab.getUniqueValue());
+					sntab.setValue("source", srcid);
+					sntab.setValue("target", tarid);
+					sntab.setValue("direction", true);
+					sntab.setValue("relationship", relname);
+					sntab.setValue("source_multiplicity", "*");
+					sntab.setValue("target_multiplicity", tarmult);
+					if (act) 
+						sntab.setValue("active", true);
+					sntab.insert();
 				}
-				sntab.insert();
 			}
 		}
 	},
@@ -118,13 +163,13 @@ CopySchemaInfo.prototype = {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-04-16 04:13:29</sys_created_on>
         <sys_id>8db71d688712211092381f073cbb358e</sys_id>
-        <sys_mod_count>49</sys_mod_count>
+        <sys_mod_count>57</sys_mod_count>
         <sys_name>CopySchemaInfo</sys_name>
         <sys_package display_value="SNSchema" source="x_965022_test">f3d0e4c78782211092381f073cbb355d</sys_package>
         <sys_policy/>
         <sys_scope display_value="SNSchema">f3d0e4c78782211092381f073cbb355d</sys_scope>
         <sys_update_name>sys_script_include_8db71d688712211092381f073cbb358e</sys_update_name>
         <sys_updated_by>Z000JHUP</sys_updated_by>
-        <sys_updated_on>2023-07-31 11:42:16</sys_updated_on>
+        <sys_updated_on>2023-07-31 15:21:30</sys_updated_on>
     </sys_script_include>
 </record_update>
