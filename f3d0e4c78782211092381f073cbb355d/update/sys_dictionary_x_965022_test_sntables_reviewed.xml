@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update>
-    <sys_dictionary action="INSERT_OR_UPDATE" element="source" table="x_965022_test_snrelationship">
+    <sys_dictionary action="INSERT_OR_UPDATE" element="reviewed" table="x_965022_test_sntables">
         <active>true</active>
         <array>false</array>
         <attributes/>
@@ -13,7 +13,7 @@
         <choice/>
         <choice_field/>
         <choice_table/>
-        <column_label>Source</column_label>
+        <column_label>Reviewed</column_label>
         <comments/>
         <create_roles/>
         <default_value/>
@@ -26,21 +26,21 @@
         <dynamic_creation_script/>
         <dynamic_default_value/>
         <dynamic_ref_qual/>
-        <element>source</element>
+        <element>reviewed</element>
         <element_reference>false</element_reference>
         <foreign_database/>
         <formula/>
         <function_definition/>
         <function_field>false</function_field>
-        <internal_type display_value="Reference">reference</internal_type>
+        <internal_type display_value="">boolean</internal_type>
         <mandatory>false</mandatory>
-        <max_length>32</max_length>
-        <name>x_965022_test_snrelationship</name>
+        <max_length>40</max_length>
+        <name>x_965022_test_sntables</name>
         <next_element/>
         <primary>false</primary>
         <read_only>false</read_only>
         <read_roles/>
-        <reference display_value="" name="x_965022_test_sntables">x_965022_test_sntables</reference>
+        <reference/>
         <reference_cascade_rule/>
         <reference_floats>false</reference_floats>
         <reference_key/>
@@ -50,15 +50,15 @@
         <spell_check>false</spell_check>
         <staged>false</staged>
         <sys_class_name>sys_dictionary</sys_class_name>
-        <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2023-04-17 05:23:06</sys_created_on>
-        <sys_name>Source</sys_name>
+        <sys_created_by>Z000JHUP</sys_created_by>
+        <sys_created_on>2023-08-04 06:50:50</sys_created_on>
+        <sys_name>Reviewed</sys_name>
         <sys_package display_value="SNSchema" source="x_965022_test">f3d0e4c78782211092381f073cbb355d</sys_package>
         <sys_policy/>
         <sys_scope display_value="SNSchema">f3d0e4c78782211092381f073cbb355d</sys_scope>
-        <sys_update_name>sys_dictionary_x_965022_test_snrelationship_source</sys_update_name>
+        <sys_update_name>sys_dictionary_x_965022_test_sntables_reviewed</sys_update_name>
         <sys_updated_by>Z000JHUP</sys_updated_by>
-        <sys_updated_on>2023-08-02 15:18:57</sys_updated_on>
+        <sys_updated_on>2023-08-04 06:50:50</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>

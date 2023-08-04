@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_policy_action">
+    <sys_ui_policy_action action="DELETE">
+        <cleared>false</cleared>
+        <disabled>true</disabled>
+        <field>reviewed</field>
+        <mandatory>ignore</mandatory>
+        <sys_class_name>sys_ui_policy_action</sys_class_name>
+        <sys_created_by>Z000JHUP</sys_created_by>
+        <sys_created_on>2023-08-04 10:26:25</sys_created_on>
+        <sys_id>175dc504db6031d0e37999fbd39619fe</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>reviewed</sys_name>
+        <sys_package display_value="SNSchema" source="x_965022_test">f3d0e4c78782211092381f073cbb355d</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SNSchema">f3d0e4c78782211092381f073cbb355d</sys_scope>
+        <sys_update_name>sys_ui_policy_action_175dc504db6031d0e37999fbd39619fe</sys_update_name>
+        <sys_updated_by>Z000JHUP</sys_updated_by>
+        <sys_updated_on>2023-08-04 10:29:55</sys_updated_on>
+        <table>x_965022_test_sntables</table>
+        <ui_policy display_value="Restrict access to review field">087c4980db6031d0e37999fbd39619ad</ui_policy>
+        <visible>ignore</visible>
+    </sys_ui_policy_action>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="SNSchema">f3d0e4c78782211092381f073cbb355d</application>
+        <file_path/>
+        <instance_id>c95685abdb4281503050ac44d4961934</instance_id>
+        <instance_name>shldev</instance_name>
+        <name>sys_ui_policy_action_175dc504db6031d0e37999fbd39619fe</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_policy_action"><sys_ui_policy_action action="INSERT_OR_UPDATE"><cleared>false</cleared><disabled>true</disabled><field>reviewed</field><mandatory>ignore</mandatory><sys_class_name>sys_ui_policy_action</sys_class_name><sys_created_by>Z000JHUP</sys_created_by><sys_created_on>2023-08-04 10:26:25</sys_created_on><sys_id>175dc504db6031d0e37999fbd39619fe</sys_id><sys_mod_count>1</sys_mod_count><sys_name>reviewed</sys_name><sys_package display_value="SNSchema" source="x_965022_test">f3d0e4c78782211092381f073cbb355d</sys_package><sys_policy/><sys_scope display_value="SNSchema">f3d0e4c78782211092381f073cbb355d</sys_scope><sys_update_name>sys_ui_policy_action_175dc504db6031d0e37999fbd39619fe</sys_update_name><sys_updated_by>Z000JHUP</sys_updated_by><sys_updated_on>2023-08-04 10:29:55</sys_updated_on><table>x_965022_test_sntables</table><ui_policy display_value="Restrict access to review field">087c4980db6031d0e37999fbd39619ad</ui_policy><visible>ignore</visible></sys_ui_policy_action></record_update>]]></payload>
+        <payload_hash>-1553898066</payload_hash>
+        <record_name>reviewed</record_name>
+        <reverted_from/>
+        <source>19a6ac52db2fa590e37999fbd39619d9</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>Z000JHUP</sys_created_by>
+        <sys_created_on>2023-08-04 10:29:55</sys_created_on>
+        <sys_id>f14e0d44db6031d0e37999fbd39619ef</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>189c018c3550000001</sys_recorded_at>
+        <sys_updated_by>Z000JHUP</sys_updated_by>
+        <sys_updated_on>2023-08-04 10:29:55</sys_updated_on>
+        <type>UI Policy Action</type>
+        <update_guid>b54e0d44de6031d0dd8d7ddc6fed3cee</update_guid>
+        <update_guid_history>b54e0d44de6031d0dd8d7ddc6fed3cee:-1553898066,de7dc504416031d005470cf3a111aeb4:-108842291</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>Z000JHUP</sys_created_by>
+        <sys_created_on>2023-08-04 10:32:18</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_policy_action">sys_ui_policy_action</sys_db_object>
+        <sys_id>87f7262d37024568bbac21840f78fa90</sys_id>
+        <sys_metadata>175dc504db6031d0e37999fbd39619fe</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>reviewed</sys_name>
+        <sys_package display_value="SNSchema" source="x_965022_test">f3d0e4c78782211092381f073cbb355d</sys_package>
+        <sys_parent display_value="">087c4980db6031d0e37999fbd39619ad</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="SNSchema">f3d0e4c78782211092381f073cbb355d</sys_scope>
+        <sys_scope_delete display_value="">b368dd393c3b4ce69d7b67ae97217909</sys_scope_delete>
+        <sys_update_name>sys_ui_policy_action_175dc504db6031d0e37999fbd39619fe</sys_update_name>
+        <sys_update_version display_value="sys_ui_policy_action_175dc504db6031d0e37999fbd39619fe">f14e0d44db6031d0e37999fbd39619ef</sys_update_version>
+        <sys_updated_by>Z000JHUP</sys_updated_by>
+        <sys_updated_on>2023-08-04 10:32:18</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

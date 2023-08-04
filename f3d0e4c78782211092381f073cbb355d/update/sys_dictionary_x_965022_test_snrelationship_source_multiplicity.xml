@@ -16,7 +16,7 @@
         <column_label>Source multiplicity</column_label>
         <comments/>
         <create_roles/>
-        <default_value/>
+        <default_value>*</default_value>
         <defaultsort/>
         <delete_roles/>
         <dependent/>
@@ -38,7 +38,7 @@
         <name>x_965022_test_snrelationship</name>
         <next_element/>
         <primary>false</primary>
-        <read_only>true</read_only>
+        <read_only>false</read_only>
         <read_roles/>
         <reference/>
         <reference_cascade_rule/>
@@ -58,7 +58,7 @@
         <sys_scope display_value="SNSchema">f3d0e4c78782211092381f073cbb355d</sys_scope>
         <sys_update_name>sys_dictionary_x_965022_test_snrelationship_source_multiplicity</sys_update_name>
         <sys_updated_by>Z000JHUP</sys_updated_by>
-        <sys_updated_on>2023-07-03 07:59:02</sys_updated_on>
+        <sys_updated_on>2023-08-02 14:17:41</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
